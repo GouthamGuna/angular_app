@@ -1,0 +1,76 @@
+<app-header></app-header>
+
+<div class="main-content">
+  <p>Welcome, {{ username }}!</p>
+
+  <div class="dashboard">
+    <div class="dashboard-card">
+      <h2>120</h2>
+      <p>Total Images</p>
+    </div>
+    <div class="dashboard-card">
+      <h2>45</h2>
+      <p>Total Videos</p>
+    </div>
+  </div>
+
+  <div class="dashboard-graphs">
+    <div class="dashboard-graph">
+      <canvas id="imagesChart"></canvas>
+    </div>
+    <div class="dashboard-graph">
+      <canvas id="videosChart"></canvas>
+    </div>
+  </div>
+
+  <div class="latest-activity">
+    <h3>Latest App Activity</h3>
+    <ul>
+      <li>User uploaded <b>image1.jpg</b> (2 min ago)</li>
+      <li>User uploaded <b>video1.mp4</b> (5 min ago)</li>
+      <li>User deleted <b>image2.jpg</b> (10 min ago)</li>
+      <li>User viewed <b>video2.mp4</b> (15 min ago)</li>
+    </ul>
+  </div>
+
+  <!-- Chart.js CDN for demo purposes -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const imagesChart = document.getElementById('imagesChart');
+      if (imagesChart) {
+        new Chart(imagesChart, {
+          type: 'bar',
+          data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+              label: 'Images',
+              data: [12, 19, 3, 5, 2, 3],
+              backgroundColor: '#007bff',
+            }]
+          },
+          options: { responsive: true, plugins: { legend: { display: false } } }
+        });
+      }
+      const videosChart = document.getElementById('videosChart');
+      if (videosChart) {
+        new Chart(videosChart, {
+          type: 'line',
+          data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+              label: 'Videos',
+              data: [2, 5, 1, 8, 4, 6],
+              borderColor: '#28a745',
+              backgroundColor: 'rgba(40,167,69,0.1)',
+              fill: true
+            }]
+          },
+          options: { responsive: true, plugins: { legend: { display: false } } }
+        });
+      }
+    });
+  </script>
+</div>
+
+<app-footer></app-footer>
