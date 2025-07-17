@@ -23,7 +23,7 @@ export class Login {
   constructor() {
     // Pre-fill with temporary credentials for testing
     this.username = '';
-    this.password = TEMP_PASSWORD;
+    this.password = '';
   }
 
   ngOnInit() {
