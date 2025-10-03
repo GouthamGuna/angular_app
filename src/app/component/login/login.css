@@ -65,3 +65,25 @@ button:hover {
 button:active {
     transform: translateY(0);
 }
+
+.error-message {
+    background-color: #ffe6e6;
+    color: #dc3545;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    border: 1px solid #ffcccc;
+}
+
+button:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+input:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}

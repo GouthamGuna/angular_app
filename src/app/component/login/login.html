@@ -1,11 +1,35 @@
 <form (ngSubmit)="onLogin()">
     <h1>ZX - APP</h1>
     
+    @if (errorMessage) {
+        <div class="error-message">
+            {{ errorMessage }}
+        </div>
+    }
+
     <label for="username">Username:</label>
-    <input type="text" id="username" [(ngModel)]="username" name="username" required placeholder="Enter your username">
+    <input type="text" 
+           id="username" 
+           [(ngModel)]="username" 
+           name="username" 
+           required 
+           placeholder="Enter your username"
+           [disabled]="isLoading">
     
     <label for="password">Password:</label>
-    <input type="password" id="password" [(ngModel)]="password" name="password" required placeholder="Enter your password">
+    <input type="password" 
+           id="password" 
+           [(ngModel)]="password" 
+           name="password" 
+           required 
+           placeholder="Enter your password"
+           [disabled]="isLoading">
     
-    <button type="submit">Login</button>
+    <button type="submit" [disabled]="isLoading">
+        @if (!isLoading) {
+            <span>Login</span>
+        } @else {
+            <span>Logging in...</span>
+        }
+    </button>
 </form>
